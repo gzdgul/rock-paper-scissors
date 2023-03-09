@@ -9,20 +9,38 @@ let computerChoice
 let result
 let username
 
+const button_div = document.getElementById('button_div');
+const options_div = document.getElementById('options_div');
+
 let nextButton_element = document.getElementById('next_button');
 nextButton_element.addEventListener('click', () => {
-    username = usernameInput.value;
-    console.log(username);
+    if (usernameInput.value){
+        username = usernameInput.value;
+        button_div.className = null;
+        console.log(username);
+    }
+    else {
+        alert('enter your username');
+    }
+
 });
 
 
 posssibleChoices.forEach((possibleChoice) => {
     possibleChoice.addEventListener('click', (a) => {
-        let userChoice_id = a.target.id // seçilenin id değerini alır ex> id: rock_id ;
-        let userChoice_button = document.getElementById(userChoice_id);
-        userChoice = userChoice_element.innerText = userChoice_button.innerText;
-        computerChoice = computerChoice_element.innerText = generateComputerChoice();
-        result_element.innerText = getResult();
+
+        if (usernameInput.value) {
+            let userChoice_id = a.target.id // seçilenin id değerini alır ex> id: rock_id ;
+            let userChoice_button = document.getElementById(userChoice_id);
+            userChoice = userChoice_element.innerText = userChoice_button.innerText;
+            computerChoice = computerChoice_element.innerText = generateComputerChoice();
+            result_element.innerText = getResult();
+            options_div.className = null;
+        }
+        else {
+            alert('enter your username');
+        }
+
     })}
 )
 
