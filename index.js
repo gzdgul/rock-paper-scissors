@@ -33,7 +33,7 @@ posssibleChoices.forEach((possibleChoice) => {
             let userChoice_button = document.getElementById(userChoice_id);
             let userChoice = userChoice_element.innerText = userChoice_button.innerText;
             let computerChoice = computerChoice_element.innerText = generateComputerChoice();
-            result = result_element.innerText = getResult(userChoice, computerChoice);
+            result = result_element.innerText = getResult(computerChoice, userChoice);
             options_div.className = null;
             lookAtResult(result);
         }
